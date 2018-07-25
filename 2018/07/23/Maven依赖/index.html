@@ -5,19 +5,19 @@
   
 
   
-  <title>Test | 龙先生的博客</title>
+  <title>Maven依赖 | 龙先生的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一切只为了测试">
+  <meta name="description" content="Maven依赖依赖传递 引用的架包如果包含其他引用会自动将其引用的架包引用进本项目举例 项目A 项目B依赖于项目A 项目C依赖于项目B 则项目C会将A自动引入自己的依赖库中 如果不想让其引入进来可以使用exclusion标签将其排除  依赖冲突 解决冲突有两种方式  短路优先A-&amp;gt;B-&amp;gt;C-&amp;gt;X  A-&amp;gt;D-&amp;gt;X会解析第二种方式 先声明先优先 （路径相同的情形）架包声">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test">
-<meta property="og:url" content="http://www.longlin.club/2018/07/24/Test/index.html">
+<meta property="og:title" content="Maven依赖">
+<meta property="og:url" content="http://www.longlin.club/2018/07/23/Maven依赖/index.html">
 <meta property="og:site_name" content="龙先生的博客">
-<meta property="og:description" content="一切只为了测试">
+<meta property="og:description" content="Maven依赖依赖传递 引用的架包如果包含其他引用会自动将其引用的架包引用进本项目举例 项目A 项目B依赖于项目A 项目C依赖于项目B 则项目C会将A自动引入自己的依赖库中 如果不想让其引入进来可以使用exclusion标签将其排除  依赖冲突 解决冲突有两种方式  短路优先A-&amp;gt;B-&amp;gt;C-&amp;gt;X  A-&amp;gt;D-&amp;gt;X会解析第二种方式 先声明先优先 （路径相同的情形）架包声">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-24T11:42:12.671Z">
+<meta property="og:updated_time" content="2018-07-25T08:09:06.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Test">
-<meta name="twitter:description" content="一切只为了测试">
+<meta name="twitter:title" content="Maven依赖">
+<meta name="twitter:description" content="Maven依赖依赖传递 引用的架包如果包含其他引用会自动将其引用的架包引用进本项目举例 项目A 项目B依赖于项目A 项目C依赖于项目B 则项目C会将A自动引入自己的依赖库中 如果不想让其引入进来可以使用exclusion标签将其排除  依赖冲突 解决冲突有两种方式  短路优先A-&amp;gt;B-&amp;gt;C-&amp;gt;X  A-&amp;gt;D-&amp;gt;X会解析第二种方式 先声明先优先 （路径相同的情形）架包声">
   
     <link rel="alternate" href="/atom.xml" title="龙先生的博客" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Test" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Maven依赖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/Test/" class="article-date">
-  <time datetime="2018-07-24T11:41:56.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/23/Maven依赖/" class="article-date">
+  <time datetime="2018-07-23T12:28:00.000Z" itemprop="datePublished">2018-07-23</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Test
+      Maven依赖
     </h1>
   
 
@@ -90,12 +90,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一切只为了测试</p>
+        <h1 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a>Maven依赖</h1><h2 id="依赖传递"><a href="#依赖传递" class="headerlink" title="依赖传递"></a>依赖传递</h2><blockquote>
+<p>引用的架包如果包含其他引用会自动将其引用的架包引用进本项目<br>举例 项目A 项目B依赖于项目A 项目C依赖于项目B 则项目C会将A自动引入自己的依赖库中 如果不想让其引入进来可以使用exclusion标签将其排除</p>
+</blockquote>
+<h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><blockquote>
+<p>解决冲突有两种方式</p>
+<ul>
+<li>短路优先<br>A-&gt;B-&gt;C-&gt;X  A-&gt;D-&gt;X会解析第二种方式</li>
+<li>先声明先优先 （路径相同的情形）<br>架包声明在前，则选择在前的依赖</li>
+</ul>
+</blockquote>
+<h2 id="聚合和继承"><a href="#聚合和继承" class="headerlink" title="聚合和继承"></a>聚合和继承</h2><ul>
+<li>聚合<blockquote>
+<p>使用modules标签 module指定项目位置</p>
+</blockquote>
+</li>
+<li>继承<blockquote>
+<p>父项目使用dependencyManagement标签<br>子项目使用parent标签</p>
+</blockquote>
+<h2 id="Maven使用插件"><a href="#Maven使用插件" class="headerlink" title="Maven使用插件"></a>Maven使用插件</h2><blockquote>
+<p>可以直接使用插件运行web项目<br>即添加plugin</p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.longlin.club/2018/07/24/Test/" data-id="cjk0um1kd0000xsv7nwq7kj5e" class="article-share-link">Share</a>
+      <a data-url="http://www.longlin.club/2018/07/23/Maven依赖/" data-id="cjk0um1kj0002xsv7hfll1ner" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,10 +126,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2018/07/24/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
-    <a href="/2018/07/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2018/07/23/Maven pom.xml解析/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">Maven pom.xml解析</div>
     </a>
   
 </nav>
