@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/Test/" data-id="cjjzmruf40000ywv7vk8vlt2g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/24/Test/" data-id="cjk0ge5o300039ov7cvf3q7vc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +141,209 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/hello-world/" data-id="cjjzmrufj0001ywv7wrmrbzlb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/24/hello-world/" data-id="cjk0ge5o300049ov747t86deb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Maven依赖" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/23/Maven依赖/" class="article-date">
+  <time datetime="2018-07-23T12:28:00.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/23/Maven依赖/">Maven依赖</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a>Maven依赖</h1><h2 id="依赖传递"><a href="#依赖传递" class="headerlink" title="依赖传递"></a>依赖传递</h2><blockquote>
+<p>引用的架包如果包含其他引用会自动将其引用的架包引用进本项目<br>举例 项目A 项目B依赖于项目A 项目C依赖于项目B 则项目C会将A自动引入自己的依赖库中 如果不想让其引入进来可以使用exclusion标签将其排除</p>
+</blockquote>
+<h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><blockquote>
+<p>解决冲突有两种方式</p>
+<ul>
+<li>短路优先<br>A-&gt;B-&gt;C-&gt;X  A-&gt;D-&gt;X会解析第二种方式</li>
+<li>先声明先优先 （路径相同的情形）<br>架包声明在前，则选择在前的依赖</li>
+</ul>
+</blockquote>
+<h2 id="聚合和继承"><a href="#聚合和继承" class="headerlink" title="聚合和继承"></a>聚合和继承</h2><ul>
+<li>聚合<blockquote>
+<p>使用modules标签 module指定项目位置</p>
+</blockquote>
+</li>
+<li>继承<blockquote>
+<p>父项目使用dependencyManagement标签<br>子项目使用parent标签</p>
+</blockquote>
+<h2 id="Maven使用插件"><a href="#Maven使用插件" class="headerlink" title="Maven使用插件"></a>Maven使用插件</h2><blockquote>
+<p>可以直接使用插件运行web项目<br>即添加plugin</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/23/Maven依赖/" data-id="cjk0ge5nn00009ov7fxa3u5ix" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Maven pom.xml解析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/23/Maven pom.xml解析/" class="article-date">
+  <time datetime="2018-07-23T11:57:00.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/23/Maven pom.xml解析/">Maven pom.xml解析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="pom-xml-文件解析"><a href="#pom-xml-文件解析" class="headerlink" title="pom.xml 文件解析"></a>pom.xml 文件解析</h1><h2 id="标签的含义"><a href="#标签的含义" class="headerlink" title="标签的含义"></a>标签的含义</h2><ul>
+<li>modelVersion 指定当前pom的版本</li>
+<li>groupId实际项目的名称 <blockquote>
+<p> 公司名称的反写+项目名称</p>
+</blockquote>
+</li>
+<li>artifactId模块的名称<blockquote>
+<p>项目名称+模块名称</p>
+</blockquote>
+</li>
+<li>version 版本号<blockquote>
+<p>三个数字表示 大版本号 分支版本号 小版本号<br>0.0.1<br>snapshot快照版本<br>alpha 内部测试版本<br> beta公测版本<br>Release稳定版本<br>GA正式发布版本</p>
+</blockquote>
+</li>
+<li>packing 打包方式<blockquote>
+<p>默认方式jar</p>
+</blockquote>
+</li>
+<li>dependencies依赖列<blockquote>
+<p>dependency依赖项<br>scope依赖范围 对应的maven生命周期<br>optional 设置依赖是否可选，决定子项目是否显示依赖此架包<br>exclusion 排除依赖传递列表</p>
+</blockquote>
+</li>
+<li>dependencyManagement依赖管理<blockquote>
+<p>不会引用到到实际项目，给子模块继承用</p>
+</blockquote>
+</li>
+<li>build 构建行为<blockquote>
+<p>plugins插件列表<br>plugin插件</p>
+</blockquote>
+</li>
+<li>parent用于子模块对父模块的继承</li>
+<li>modules指定多个模块进行编译</li>
+<li>name项目描述名</li>
+<li>ur 项目地址</li>
+<li>description项目描述</li>
+<li>developers开发人员信息</li>
+<li>license许可证信息</li>
+<li>organization组织信息</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/23/Maven pom.xml解析/" data-id="cjk0ge5o300019ov78cp3rtts" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Maven常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/Maven常用命令/" class="article-date">
+  <time datetime="2018-07-22T08:10:00.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/Maven常用命令/">Maven常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Maven重用命令"><a href="#Maven重用命令" class="headerlink" title="Maven重用命令"></a>Maven重用命令</h1><ul>
+<li>常用构建命令<blockquote>
+<p>mvn -v  查看版本<br>mvn  -compile 编译<br>mvn -test 测试<br> mvn -package打包<br>clean 删除target<br>install 将jar包安装到本地仓库</p>
+</blockquote>
+</li>
+<li>自动构建目录骨架<blockquote>
+<p>archetype插件 用于创建符合maven规定的目录骨架<br>mvn archetype:generate<br>mvn archetype:generate -DgroupId=x.x.x  -DartifactId=x.x.x -Dversion=x.x.x -Dpackage=x.x.x</p>
+</blockquote>
+</li>
+<li>Maven中的坐标和仓库<blockquote>
+<p>构件通过坐标作为其唯一的标识<br>仓库分为本地仓库和远程仓库<br>镜像仓库 mirror</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">     &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">     &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">     &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">     &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        </span><br><span class="line">   &lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>更改仓库位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;D:\ProgramSoft\maven_repositor&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="maven-生命周期"><a href="#maven-生命周期" class="headerlink" title="maven 生命周期"></a>maven 生命周期</h2><ul>
+<li>clean <blockquote>
+<p>pre-clean 执行清理前的工作 clean 清理上一次构建生成的所有文件 post-clean 执行清理后的工作</p>
+</blockquote>
+</li>
+<li>default 构建项目（最核心）<blockquote>
+<p>compile test package install</p>
+</blockquote>
+</li>
+<li>site生成项目站点 <blockquote>
+<p>pre-site生成站点前要完成的工作 site生成项目的站点文档 post-site在生成项目站点后要完成的工作 site-deploy 发布生成的站点到服务器上</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/Maven常用命令/" data-id="cjk0ge5o300029ov74o3h4r3y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,6 +389,18 @@
         
           <li>
             <a href="/2018/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/23/Maven依赖/">Maven依赖</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/23/Maven pom.xml解析/">Maven pom.xml解析</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/22/Maven常用命令/">Maven常用命令</a>
           </li>
         
       </ul>

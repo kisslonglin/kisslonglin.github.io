@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Maven常用命令 | 龙先生的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Maven重用命令 常用构建命令 mvn -v  查看版本mvn  -compile 编译mvn -test 测试 mvn -package打包clean 删除targetinstall 将jar包安装到本地仓库   自动构建目录骨架 archetype插件 用于创建符合maven规定的目录骨架mvn archetype:generatemvn archetype:generate -Dgroup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/Maven常用命令/index.html">
+<meta property="og:site_name" content="龙先生的博客">
+<meta property="og:description" content="Maven重用命令 常用构建命令 mvn -v  查看版本mvn  -compile 编译mvn -test 测试 mvn -package打包clean 删除targetinstall 将jar包安装到本地仓库   自动构建目录骨架 archetype插件 用于创建符合maven规定的目录骨架mvn archetype:generatemvn archetype:generate -Dgroup">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-22T09:05:21.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven常用命令">
+<meta name="twitter:description" content="Maven重用命令 常用构建命令 mvn -v  查看版本mvn  -compile 编译mvn -test 测试 mvn -package打包clean 删除targetinstall 将jar包安装到本地仓库   自动构建目录骨架 archetype插件 用于创建符合maven规定的目录骨架mvn archetype:generatemvn archetype:generate -Dgroup">
+  
+    <link rel="alternate" href="/atom.xml" title="龙先生的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">龙先生的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">记录学习的技能和遇到的问题</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Maven常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/Maven常用命令/" class="article-date">
+  <time datetime="2018-07-22T08:10:00.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Maven常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Maven重用命令"><a href="#Maven重用命令" class="headerlink" title="Maven重用命令"></a>Maven重用命令</h1><ul>
+<li>常用构建命令<blockquote>
+<p>mvn -v  查看版本<br>mvn  -compile 编译<br>mvn -test 测试<br> mvn -package打包<br>clean 删除target<br>install 将jar包安装到本地仓库</p>
+</blockquote>
+</li>
+<li>自动构建目录骨架<blockquote>
+<p>archetype插件 用于创建符合maven规定的目录骨架<br>mvn archetype:generate<br>mvn archetype:generate -DgroupId=x.x.x  -DartifactId=x.x.x -Dversion=x.x.x -Dpackage=x.x.x</p>
+</blockquote>
+</li>
+<li>Maven中的坐标和仓库<blockquote>
+<p>构件通过坐标作为其唯一的标识<br>仓库分为本地仓库和远程仓库<br>镜像仓库 mirror</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">     &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">     &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">     &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">     &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        </span><br><span class="line">   &lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>更改仓库位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;D:\ProgramSoft\maven_repositor&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="maven-生命周期"><a href="#maven-生命周期" class="headerlink" title="maven 生命周期"></a>maven 生命周期</h2><ul>
+<li>clean <blockquote>
+<p>pre-clean 执行清理前的工作 clean 清理上一次构建生成的所有文件 post-clean 执行清理后的工作</p>
+</blockquote>
+</li>
+<li>default 构建项目（最核心）<blockquote>
+<p>compile test package install</p>
+</blockquote>
+</li>
+<li>site生成项目站点 <blockquote>
+<p>pre-site生成站点前要完成的工作 site生成项目的站点文档 post-site在生成项目站点后要完成的工作 site-deploy 发布生成的站点到服务器上</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/Maven常用命令/" data-id="cjk0ge5o300029ov74o3h4r3y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/23/Maven pom.xml解析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Maven pom.xml解析
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/24/Test/">Test</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/23/Maven依赖/">Maven依赖</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/23/Maven pom.xml解析/">Maven pom.xml解析</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/22/Maven常用命令/">Maven常用命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 龙林<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
