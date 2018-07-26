@@ -20,6 +20,7 @@
 
 
 
+
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
@@ -86,7 +87,7 @@
 <meta property="og:site_name" content="龙先生的博客">
 <meta property="og:description" content="Maven依赖依赖传递 引用的架包如果包含其他引用会自动将其引用的架包引用进本项目举例 项目A 项目B依赖于项目A 项目C依赖于项目B 则项目C会将A自动引入自己的依赖库中 如果不想让其引入进来可以使用exclusion标签将其排除  依赖冲突 解决冲突有两种方式  短路优先A-&amp;gt;B-&amp;gt;C-&amp;gt;X  A-&amp;gt;D-&amp;gt;X会解析第二种方式 先声明先优先 （路径相同的情形）架包声">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-26T02:07:30.581Z">
+<meta property="og:updated_time" content="2018-07-26T03:54:03.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven依赖">
 <meta name="twitter:description" content="Maven依赖依赖传递 引用的架包如果包含其他引用会自动将其引用的架包引用进本项目举例 项目A 项目B依赖于项目A 项目C依赖于项目B 则项目C会将A自动引入自己的依赖库中 如果不想让其引入进来可以使用exclusion标签将其排除  依赖冲突 解决冲突有两种方式  短路优先A-&amp;gt;B-&amp;gt;C-&amp;gt;X  A-&amp;gt;D-&amp;gt;X会解析第二种方式 先声明先优先 （路径相同的情形）架包声">
@@ -146,7 +147,7 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -237,7 +238,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -340,7 +341,40 @@
     
 
     
+    <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="龙林 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -510,11 +544,11 @@
 
   
 </div>
-
+<!--
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-
+-->
 
   <span class="post-meta-divider">|</span>
 
@@ -567,6 +601,8 @@
   
 
 
+  
+
 
 
 
@@ -605,6 +641,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -696,3 +737,7 @@
 
 </body>
 </html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
