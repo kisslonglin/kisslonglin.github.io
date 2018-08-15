@@ -243,6 +243,281 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.longlin.club/2018/08/15/Spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="龙林">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="龙先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/15/Spring/" itemprop="url">Spring4.1.6 学习IOC，注解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T10:14:40+08:00">
+                2018-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring4-1-6-IOC容器学习"><a href="#Spring4-1-6-IOC容器学习" class="headerlink" title="Spring4.1.6 IOC容器学习"></a>Spring4.1.6 IOC容器学习</h1><h2 id="Spring-IOC容器"><a href="#Spring-IOC容器" class="headerlink" title="Spring IOC容器"></a>Spring IOC容器</h2><blockquote>
+<p>IOC为控制反转</p>
+</blockquote>
+<ul>
+<li>何为控制，控制什么<blockquote>
+<p>传统程序设计，我们需要在对象内部通过new来创建对象，IOC即提供一个容器来创建对象。<br>何为控制：即IOC容器控制对象的创建，IOC容器即控制了对象<br>控制什么：控制外部资源的获取（对象和文件等）</p>
+</blockquote>
+</li>
+<li>何为反转，反转什么<blockquote>
+<p>凡事有正反两面，有反转则会有正转。正转即当A对象依赖B对象时，需要在A对象中主动去获取B对象。<br>反转：即通过IOC容器来A为对象注入B对象，不用在A中主动去获取。<br>反转什么：依赖对象的获取方式被反转了</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="BeanFactory容器"><a href="#BeanFactory容器" class="headerlink" title="BeanFactory容器"></a>BeanFactory容器</h3><blockquote>
+<p>BeanFactory容器是IOC容器中最简单的,在Spring中有很多对BeanFactory的实现，ApplicationContext是采用最广的BeanFactory的实现方式，其次则是XMLBeanFactory</p>
+</blockquote>
+<h3 id="ApplicationContext容器"><a href="#ApplicationContext容器" class="headerlink" title="ApplicationContext容器"></a>ApplicationContext容器</h3><blockquote>
+<p>ApplicationContext是Spring IOC容器中较高级的容器，而ApplicationContext的实现方式有以下3个</p>
+</blockquote>
+<ul>
+<li>FileSystemXmlApplicationContext容器<blockquote>
+<p>FileSystemXmlApplicationContext容器从XML文件中加载Bean，但需要指定XML文件的完整路径</p>
+</blockquote>
+</li>
+<li>ClassPathXmlApplicationContext容器<blockquote>
+<p>ClassPathXmlApplicationContext容器也是从XML文件中加载Bean，但不需要指定XML完整路径，而需要配置CLASSPATH环境变量，容器会在配置好的环境中自动搜索Bean配置文件</p>
+</blockquote>
+</li>
+<li>WebXmlApplicationContext容器<blockquote>
+<p>WebXmlApplicationContext容器，WEB应用中应用最广泛的容器，能够在WEB应用程序内加载XML文件中配置好的Bean</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Spring-Bean的定义"><a href="#Spring-Bean的定义" class="headerlink" title="Spring Bean的定义"></a>Spring Bean的定义</h3><ul>
+<li><p>class属性</p>
+<blockquote>
+<p>不可缺少的属性，指定需要对哪个类进行创建Bean</p>
+</blockquote>
+</li>
+<li><p>name属性</p>
+<blockquote>
+<p>Bean的唯一标识</p>
+</blockquote>
+</li>
+<li><p>scope</p>
+<blockquote>
+<p>指定Bean对象的作用域，Bean对象的作用域有五个范围</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>singleton    在spring IoC容器仅存在一个Bean实例，Bean以单例方式存在</li>
+<li>prototype    每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean()时，相当于执行newXxxBean()</li>
+<li>request    每次HTTP请求都会创建一个新的Bean，该作用域仅适用于WebApplicationContext环境</li>
+<li>session    同一个HTTP Session共享一个Bean，不同Session使用不同的Bean，仅适用于WebApplicationContext环境</li>
+<li>global-session 一般用于Portlet应用环境，改作用于仅适用于WebApplicationContext环境<blockquote>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>constructor-arg properties autowiring mode 属性</p>
+<blockquote>
+<p>都是用来指定Bean的依赖关系</p>
+</blockquote>
+</li>
+<li><p>lazy-initialization mode属性</p>
+<blockquote>
+<p>用来对Bean的加载进行延时，不会在程序的启动时就加载Bean，只会在第一次请求时加载Bean</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Spring-Bean的生命周期"><a href="#Spring-Bean的生命周期" class="headerlink" title="Spring Bean的生命周期"></a>Spring Bean的生命周期</h3><blockquote>
+<p>init-method和destroy-method属性，指定Bean在初始化和销毁时调用一个无参的方法<br>同时还可以对InitializingBean和DisposableBean接口进行实现，完成Bean的初始化和销毁工作</p>
+</blockquote>
+<h3 id="Spring-Bean的后置处理"><a href="#Spring-Bean的后置处理" class="headerlink" title="Spring Bean的后置处理"></a>Spring Bean的后置处理</h3><blockquote>
+<p>通过实现BeanPostProcessor类来对Bean的初始化之前和之后进行操作</p>
+</blockquote>
+<h3 id="Spring-Bean的继承使用"><a href="#Spring-Bean的继承使用" class="headerlink" title="Spring Bean的继承使用"></a>Spring Bean的继承使用</h3><blockquote>
+<p>Spring Bean的继承，只需要在Bean的属性加上parent属性，而Java可以使用extend关键字来实现继承</p>
+</blockquote>
+<h2 id="Spring-依赖注入"><a href="#Spring-依赖注入" class="headerlink" title="Spring 依赖注入"></a>Spring 依赖注入</h2><h3 id="基于构造函数的依赖注入"><a href="#基于构造函数的依赖注入" class="headerlink" title="基于构造函数的依赖注入"></a>基于构造函数的依赖注入</h3><blockquote>
+<p> 需要在Bean标签中加入<constructor-arg ref="spellChecker">标签，constructor-arg表示作为构造函数的差数传入，ref为Bean的ID<br> 当构造函数参数存在多个Bean，最好的区分方式应采用<constructor-arg index="0" value="2001">，使用index属性来为参数做区分</constructor-arg></constructor-arg></p>
+</blockquote>
+<h3 id="基于set方法的依赖注入"><a href="#基于set方法的依赖注入" class="headerlink" title="基于set方法的依赖注入"></a>基于set方法的依赖注入</h3><blockquote>
+<p>需要在Bean标签中加入<property name="spellChecker" ref="spellChecker"></property>其中name为属性的名字，ref为应用的Bean的ID，或者为value直接传入值<br>这种配置方式可以简化为p-namespace，在p-namespace中如果是传入值p:name=”John Doe”，其中的name为属性名，=后面接需要传入的值，如果需要注入引用p:spouse-ref=”jane”则需要加入-ref，=后面接的Bean的ID</p>
+</blockquote>
+<h3 id="内部Bean的注入"><a href="#内部Bean的注入" class="headerlink" title="内部Bean的注入"></a>内部Bean的注入</h3><blockquote>
+<p>基于Set方法中，在<property> 加入Bean标签即可</property></p>
+</blockquote>
+<h3 id="Spring-自动装配"><a href="#Spring-自动装配" class="headerlink" title="Spring 自动装配"></a>Spring 自动装配</h3><blockquote>
+<p>Spring的自动装配通过autowire属性来为其指定装配方式，装配方式有三种</p>
+</blockquote>
+<ol>
+<li>byName，根据需要装配Bean的java类中的属性名来自动搜索所定义的Bean的ID，然后将其注入</li>
+<li>byType,根据需要装配Bean的java类中的属性的类名，自动搜索所定义的Bean的ID，然后将其注入，如果同时存在多个同名的ID则会产生异常</li>
+<li>constructor，方式与byType类似，通过类名查找Bean的ID，然后注入，存在多个时也会抛出异常</li>
+</ol>
+<h3 id="Spring-基于注解的依赖注入配置"><a href="#Spring-基于注解的依赖注入配置" class="headerlink" title="Spring 基于注解的依赖注入配置"></a>Spring 基于注解的依赖注入配置</h3><blockquote>
+<p>Spring 从2.5版本开始支持通过注解来配置依赖注入，基于注解的配置默认不会打开，需要在配置文件中打开注解配置</p>
+</blockquote>
+<ul>
+<li>注解的种类<blockquote>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>@Autowired 需声明AutowiredAnnotationBeanPostProcessor</li>
+<li>@Resource 、@PostConstruct、@PreDestroy等 需声明CommonAnnotationBeanPostProcessor</li>
+<li>@PersistenceContext 需声明PersistenceAnnotationBeanPostProcessor</li>
+<li>@Required 需声明RequiredAnnotationBeanPostProcessor</li>
+</ol>
+<blockquote>
+<p>如果想要省去手动的声明，则有两种方式可以省去</p>
+</blockquote>
+<ol>
+<li><code>&lt;context:annotation-config/&gt;</code> 通过该配置的声明，使用的注解只能在已经注册过的Bean中生效</li>
+<li><code>&lt;context:component-scan&gt;</code> 该配置除了支持上述的注解外，还额外支持@Component，@Repository，@Service，<br>@Controller @RestController, @ControllerAdvice, @Configuration 注解，并扫描拥有这些注解的Java类，为其自动注册Bean</li>
+</ol>
+<ul>
+<li>注解的使用<blockquote>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>@Required使用在set方法上</li>
+<li>@Autowired可以使用在属性，构造函数，以及构造方法中，它会通过ByType的方式去寻找相应的Bean，如果出现了冲突，需要通过@Qualifier(“BeanID”)来为其指定具体的Bean</li>
+<li>@Qualifier主要是搭配@Autowired来使用，帮助解决冲突</li>
+<li>@PostConstruct和@PreDestroy注解作用是为Bean的初始化或者销毁时提供所需要的操作</li>
+<li>@Resource注解和@Autowired作用一样，不过其是通过ByName方式寻找Bean</li>
+<li>@Configuration和@Bean这两个注解一般搭配使用，@Configuration主要是表明该类可以为Spring IOC提供Bean的来源，@Bean表明在该类的某一个方法可以返回一个Bean，@Import标签作用是在该类可以从另一个配置类加载@Bean</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+    <div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.longlin.club/2018/07/27/Java类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1107,7 +1382,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
